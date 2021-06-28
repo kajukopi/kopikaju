@@ -26,23 +26,23 @@ def list_blog(request):
           
     return render(request, "list_blog.html", context)
     
-def detail_blog(request, pk):
+def detail_blog(request, id):
     # dictionary for initial data with 
     # field names as keys
     context ={}
   
     # add the dictionary during initialization
-    context["data"] = BlogModel.objects.get(id = pk)
+    context["data"] = BlogModel.objects.get(id = id)
           
     return render(request, "detail_blog.html", context)
 
-def update_blog(request, pk):
+def update_blog(request, id):
     # dictionary for initial data with 
     # field names as keys
     context ={}
   
     # fetch the object related to passed id
-    obj = get_object_or_404(BlogModel, id = pk)
+    obj = get_object_or_404(BlogModel, id = id)
   
     # pass the object as instance in form
     form = BlogForm(request.POST or None, instance = obj)
@@ -51,20 +51,20 @@ def update_blog(request, pk):
     # redirect to detail_view
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect("/"+pk)
+        return HttpResponseRedirect("/"+id)
   
     # add form dictionary to context
     context["form"] = form
   
     return render(request, "update_blog.html", context)
 
-def delete_blog(request, pk):
+def delete_blog(request, id):
     # dictionary for initial data with 
     # field names as keys
     context ={}
   
     # fetch the object related to passed id
-    obj = get_object_or_404(BlogModel, id = pk)
+    obj = get_object_or_404(BlogModel, id = id)
   
   
     if request.method =="POST":

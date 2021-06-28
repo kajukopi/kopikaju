@@ -20,7 +20,7 @@
         <div class="card-body">
             <img src="{{ data.img.url }}" alt="Norway" style="width: 200px;;" class="w3-hover-opacity">
             <p>{{ data.description|safe|truncatechars:100 }}</p>
-            <a href="{% url 'detail_blog' data.pk %}">Read more</a> 
+            <a href="{% url 'detail_blog' data.id %}">Read more</a> 
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
@@ -31,7 +31,5 @@
 </div>
 <!-- /.card -->
 {% endfor %}
-
-
 
 {% endblock %}

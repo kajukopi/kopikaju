@@ -27,8 +27,8 @@
             </div>
             <!-- /.card-body -->
             <div class="card-footer">
-                <a href="{% url 'delete_blog' data.pk  %}" class="badge badge-danger">Delete</a>
-                <a href="{% url 'update_blog' data.pk  %}" class="badge badge-primary">Update</a>
+                <a href="{% url 'delete_blog' data.id  %}" class="badge badge-danger">Delete</a>
+                <a href="{% url 'update_blog' data.id  %}" class="badge badge-primary">Update</a>
                 <p>{{ data.last_modified}}</p>
             </div>
             <!-- /.card-footer-->
