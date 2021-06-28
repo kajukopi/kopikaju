@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+{% for data in dataset %}
+<!-- Default box -->
+<div class="content-wrapper">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">{{ data.title }}</h3>
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card-body">
+            <img src="{{ data.img.url }}" alt="Norway" style="width: 200px;;" class="w3-hover-opacity">
+            <p>{{ data.description|safe|truncatechars:100 }}</p>
+            <a href="{% url 'detail_blog' data.pk %}">Read more</a> 
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+            <p>{{ data.last_modified}}</p>
+        </div>
+        <!-- /.card-footer-->
+    </div>
+</div>
+<!-- /.card -->
+{% endfor %}
+
+
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="content-wrapper">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">{{ data.title }}</h3>
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <img src="{{ data.img.url }}" alt="Norway" style="width: 200px" class="w3-hover-opacity rounded">
+                    </div>
+                    <div class="col-sm-9">
+                        {{ data.description|safe }}
+                    </div>
+                </div>
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+                <a href="{% url 'delete_blog' data.pk  %}" class="badge badge-danger">Delete</a>
+                <a href="{% url 'update_blog' data.pk  %}" class="badge badge-primary">Update</a>
+                <p>{{ data.last_modified}}</p>
+            </div>
+            <!-- /.card-footer-->
+        </div>
+    </div>
+    {% endblock %}
